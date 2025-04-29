@@ -1,0 +1,69 @@
+import React, { useEffect, useState } from "react";
+import "./MovieList.css";
+import MovieCard from "./MovieCard.jsx";
+import FilterGroup from "./FilterGroup.jsx";
+
+const MovieList = ({type, title, emoji}) => {
+  const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [minRating, setMinRating] = useState(0);
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+  const fetchMovies = async () => {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${type}?api_key=e35fba9ee4d8e27c290f15962efc8a31`
+    );
+    const data = await response.json();
+    setMovies(data.results);
+    setFilteredMovies(data.results);
+  };
+
+  const handleFilter = (rate) => {
+    if (rate === minRating) {
+      setMinRating(0);
+      setFilteredMovies(movies);
+    } else {
+      setMinRating(rate);
+
+      const filtered = movies.filter((movie) => movie.vote_average >= rate);
+      setFilteredMovies(filtered);
+    }
+  };
+
+  return (
+    <section className="movie_list">
+      <header className="movie_list_header">
+        <h2 className="movie_list_heading">
+          {title} <img src={emoji} alt={`${emoji} icon`} className="navbar_emoji" />
+        </h2>
+
+        <div className="align_center movie_list_fs">
+          <FilterGroup minRating={minRating} onRatingChange={handleFilter} 
+          ratings={[8, 7, 6]}
+          />
+
+          <select name="" id="" className="movie_sorting">
+            <option value="">SortBy</option>
+            <option value="">Date</option>
+            <option value="">Rating</option>
+          </select>
+          <select name="" id="" className="movie_sorting">
+            <option value="">Ascending</option>
+            <option value="">Decending</option>
+          </select>
+        </div>
+      </header>
+
+      <div className="movie_cards">
+        {filteredMovies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default MovieList;
