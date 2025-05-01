@@ -1,0 +1,27 @@
+
+
+.about-section {
+    padding: 2rem;
+  
+      
+  }
+  
+  .about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+  
+  .about-section ul {
+    text-align: left;
+    margin: 15px 0;
+    max-width: 600px;
+  }
+  
+  .about-section li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    list-style: none;
+  }
+  

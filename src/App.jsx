@@ -1,22 +1,21 @@
 import React from 'react'
-
-import './App.css'
-import Fire from './assets/fire.png'
-import Star from './assets/glowing-star.png'
-import Party from './assets/partying-face.png'
-import Navbar from './components/Navbar/Navbar.jsx'
-import MovieList from './components/MovieList/MovieList.jsx'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import HomePage from './pages/Homepage/HomePage.jsx'
+import PopularPage from './pages/PopularPage/PopularPage.jsx'
+import TopRated from './pages/TopRated/TopRated.jsx'
+import Upcoming from './pages/Upcoming/Upcoming.jsx'
 
 
 const App = () => {
   return (
-    <div className='app'>
-      <Navbar />
-      <MovieList type="popular" title="popular" emoji={Fire} />
-      <MovieList type="top_rated" title="Top Rated" emoji={Star} />
-      <MovieList type="upcoming" title="Upcoming" emoji={Party} />
-      
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/popular" element={<PopularPage />} />
+        <Route path="/top_rated" element={<TopRated />} />
+        <Route path="/upcoming" element={<Upcoming />} />
+      </Routes>
+    </Router>
   )
 }
 

@@ -2,15 +2,21 @@ import React, { useEffect, useState } from "react";
 import "./MovieList.css";
 import MovieCard from "./MovieCard.jsx";
 import FilterGroup from "./FilterGroup.jsx";
+import DarkMode from "../DarkMode/DarkMode.jsx";
 
-const MovieList = ({type, title, emoji}) => {
+const MovieList = ({ type, title, emoji, movies: externalMovies }) => {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [minRating, setMinRating] = useState(0);
 
   useEffect(() => {
-    fetchMovies();
-  }, []);
+    if (externalMovies && externalMovies.length > 0) {
+      setMovies(externalMovies);
+      setFilteredMovies(externalMovies);
+    } else {
+      fetchMovies();
+    }
+  }, [externalMovies]);
 
   const fetchMovies = async () => {
     const response = await fetch(
@@ -37,12 +43,17 @@ const MovieList = ({type, title, emoji}) => {
     <section className="movie_list">
       <header className="movie_list_header">
         <h2 className="movie_list_heading">
-          {title} <img src={emoji} alt={`${emoji} icon`} className="navbar_emoji" />
+          {title}{" "}
+          <img src={emoji} alt={`${emoji} icon`} className="navbar_emoji" />
         </h2>
 
+        <DarkMode />
+
         <div className="align_center movie_list_fs">
-          <FilterGroup minRating={minRating} onRatingChange={handleFilter} 
-          ratings={[8, 7, 6]}
+          <FilterGroup
+            minRating={minRating}
+            onRatingChange={handleFilter}
+            ratings={[8, 7, 6]}
           />
 
           <select name="" id="" className="movie_sorting">
@@ -58,9 +69,10 @@ const MovieList = ({type, title, emoji}) => {
       </header>
 
       <div className="movie_cards">
-        {filteredMovies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        {Array.isArray(filteredMovies) &&
+          filteredMovies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
       </div>
     </section>
   );
