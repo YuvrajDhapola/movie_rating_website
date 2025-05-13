@@ -1,44 +1,52 @@
-.movie_list_header{
-    padding: 10px 30px;
+.movie_list_header {
+    padding: 0 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-bottom: 20px;
     margin: 10px 0;
-    
     border-bottom: 1px solid #e6e6e6;
 
 }
 
-.movie_list_heading{
+.logo {
+    display: flex;
+}
+
+.logo_image {
+    height: 70px;
+    width: auto;
+}
+
+.movie_list_heading {
     display: flex;
     align-items: center;
     font-size: 26px;
     color: var(--heading_color);
 }
 
-.movie_date_rate{
+.movie_date_rate {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.movie_filter{
+.movie_filter {
     list-style: none;
     font-size: 16px;
 }
 
-.movie_filter_item{
+.movie_filter_item {
     padding: 5px 10px;
     cursor: pointer;
 }
 
-.movie_filter_item.active{
+.movie_filter_item.active {
     border-bottom: 1px solid #e6e6e6;
     font-weight: 500;
 }
 
-.movie_sorting{
+.movie_sorting {
     border: none;
     outline: none;
     border-radius: 5PX;
@@ -51,7 +59,7 @@
 
 }
 
-.movie_cards{
+.movie_cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;

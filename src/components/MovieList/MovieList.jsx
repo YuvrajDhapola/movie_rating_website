@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./MovieList.css";
 import MovieCard from "./MovieCard.jsx";
 import FilterGroup from "./FilterGroup.jsx";
 import DarkMode from "../DarkMode/DarkMode.jsx";
+import { Link } from "react-router-dom";
 
 const MovieList = ({ type, title, emoji, movies: externalMovies }) => {
   const [movies, setMovies] = useState([]);
@@ -42,12 +43,19 @@ const MovieList = ({ type, title, emoji, movies: externalMovies }) => {
   return (
     <section className="movie_list">
       <header className="movie_list_header">
-        <h2 className="movie_list_heading">
-          {title}{" "}
-          <img src={emoji} alt={`${emoji} icon`} className="navbar_emoji" />
-        </h2>
+        <div className="logo">
+ <Link to="/">
+          <img 
+            className="logo_image"
+            src="fire_wolf.png"
+            alt="firewolf image"
+          />
+        </Link>
+        <h2 className="movie_list_heading">{title}</h2>
+        </div>
+       
 
-        <DarkMode />
+       
 
         <div className="align_center movie_list_fs">
           <FilterGroup

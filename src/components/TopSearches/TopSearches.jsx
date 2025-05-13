@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './TopSearches.css';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "./TopSearches.css";
 
 const TopSearches = ({ onSearchClick }) => {
   const [topSearchTerms, setTopSearchTerms] = useState([]);
@@ -16,7 +16,7 @@ const TopSearches = ({ onSearchClick }) => {
           .map((movie) => movie.title);
         setTopSearchTerms(movieTitles);
       } catch (error) {
-        console.error('Error fetching top searches:', error);
+        console.error("Error fetching top searches:", error);
       }
     };
 
@@ -25,18 +25,17 @@ const TopSearches = ({ onSearchClick }) => {
 
   return (
     <div className="top-searches">
-      <h3>🔥 Top Searches</h3>
-      <div className="search-tags">
-        {topSearchTerms.map((term, index) => (
-          <button
-            key={index}
-            className="search-tag"
-            onClick={() => onSearchClick(term)}
-          >
-            {term}
-          </button>
-        ))}
-      </div>
+      <p className="top_search_heading">Top Search:</p>
+
+      {topSearchTerms.map((term, index) => (
+        <p
+          key={index}
+          className="search-tag"
+          onClick={() => onSearchClick(term)}
+        >
+          {term},
+        </p>
+      ))}
     </div>
   );
 };

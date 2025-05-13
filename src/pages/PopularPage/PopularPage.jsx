@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import InfiniteScroll from "react-infinite-scroll-component";
 import MovieList from "../../components/MovieList/MovieList.jsx";
 import Fire from "../../assets/fire.png";
 import { Link } from "react-router-dom";
-import "./PopularPage.css"; // Import your CSS file
 
 const PopularPage = () => {
   const [movies, setMovies] = useState([]);
@@ -40,13 +39,6 @@ const PopularPage = () => {
 
   return (
     <div>
-      <div className="logo_container">
-      <Link to="/">
-        <img className="logo_image" src="firefist.png" alt="firefist image" />
-      </Link>
-      <h1>firefist</h1>
-      </div>
-      
       <InfiniteScroll
         dataLength={movies.length}
         next={() => setPage((prev) => prev + 1)}

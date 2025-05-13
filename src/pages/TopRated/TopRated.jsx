@@ -39,10 +39,7 @@ const TopRated = () => {
 
   return (
     <div>
-      <Link to="/">
-        <img className="logo_image" src="firefist.png" alt="firefist image" />
-      </Link>
-     
+      
       <InfiniteScroll
         dataLength={movies.length}
         next={() => setPage(prev => prev + 1)}
