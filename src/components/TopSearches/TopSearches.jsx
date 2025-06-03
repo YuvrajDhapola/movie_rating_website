@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import "./TopSearches.css";
+import "./topSearches.css";
 
 const TopSearches = ({ onSearchClick }) => {
   const [topSearchTerms, setTopSearchTerms] = useState([]);

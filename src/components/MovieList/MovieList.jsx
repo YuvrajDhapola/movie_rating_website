@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import "./MovieList.css";
+import "./movieList.css";
 import MovieCard from "./MovieCard.jsx";
 import FilterGroup from "./FilterGroup.jsx";
-import DarkMode from "../DarkMode/DarkMode.jsx";
 import { Link } from "react-router-dom";
 
 const MovieList = ({ type, title, emoji, movies: externalMovies }) => {

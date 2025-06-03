@@ -1,4 +1,3 @@
-import React from "react";
 import "./movieCard.css";
 import star from "../../assets/glowing-star.png";
 

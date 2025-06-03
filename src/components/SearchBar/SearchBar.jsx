@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./SearchBar.css";
+import "./searchBar.css";
 import { Link } from "react-router-dom";
 import TopSearches from "../TopSearches/TopSearches.jsx";
 
