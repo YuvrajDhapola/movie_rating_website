@@ -39,7 +39,6 @@ const TopRated = () => {
 
   return (
     <div>
-      
       <InfiniteScroll
         dataLength={movies.length}
         next={() => setPage(prev => prev + 1)}

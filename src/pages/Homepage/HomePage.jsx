@@ -22,6 +22,7 @@ const HomePage = () => {
     }
   };
 
+  const [searchText, setSearchText] = useState("");
 
   return (
     <div className="app">

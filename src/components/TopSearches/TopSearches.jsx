@@ -36,6 +36,7 @@ const TopSearches = ({ onSearchClick }) => {
           {term},
         </p>
       ))}
+      <p>...</p>
     </div>
   );
 };

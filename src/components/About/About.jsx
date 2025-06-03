@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './About.css'
 
 const About = () => {
@@ -6,7 +6,7 @@ const About = () => {
     <section className="about-section">
   
   <p>
-    Welcome to <strong>Movie Ratings</strong>, your go-to platform for discovering and exploring movies from around the world. Powered by the <strong>TMDB API</strong>, this app lets you:
+    Welcome to <strong>AlphaCritic</strong>, your go-to platform for discovering and exploring movies from around the world. Powered by the <strong>TMDB API</strong>, this app lets you:
   </p>
   <ul>
     <li>🔍 <strong>Search</strong> for your favorite movies in real time</li>

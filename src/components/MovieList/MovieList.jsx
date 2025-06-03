@@ -44,18 +44,15 @@ const MovieList = ({ type, title, emoji, movies: externalMovies }) => {
     <section className="movie_list">
       <header className="movie_list_header">
         <div className="logo">
- <Link to="/">
-          <img 
-            className="logo_image"
-            src="fire_wolf.png"
-            alt="firewolf image"
-          />
-        </Link>
-        <h2 className="movie_list_heading">{title}</h2>
+          <Link to="/">
+            <img
+              className="logo_image"
+              src="fire_wolf.png"
+              alt="firewolf image"
+            />
+          </Link>
+          <h2 className="movie_list_heading">{title}</h2>
         </div>
-       
-
-       
 
         <div className="align_center movie_list_fs">
           <FilterGroup
