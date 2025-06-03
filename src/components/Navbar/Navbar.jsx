@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import "./Navbar.css";
+import "./navbar.css";
 import DarkMode from "../DarkMode/DarkMode";
 
 
